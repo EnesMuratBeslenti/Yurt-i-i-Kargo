@@ -28,27 +28,27 @@ public class Application {
     public int printSelectionMenu() {
         System.out.println(
                 "Hi, please choose your action\n" +
-                        "1.Şifreleme \n " +
-                        "2.Çözümleme"    //ingilizce olacak
+                        "1.Encrypt \n " +
+                        "2.Decrypt"
         );
 
         String selection = scanner.next();
         if (isNumeric(selection) && Integer.parseInt(selection) <=2 && Integer.parseInt(selection) >0) {
             return Integer.parseInt(selection);
         } else
-            System.out.println("Lütfen geçerli bir giriş yapınız");
+            System.out.println("Please enter a valid login\n");
         return printSelectionMenu();
     }
 
     private void printInputMenu() {
-        System.out.println("Lütfen öğrenci isminizi giriniz");
+        System.out.println("Please enter your student name\n");
         String a = scanner.next();
         if (a.length() >=90){
-            System.out.println("Lütfen 90 karakteri geçmeyiniz");
+            System.out.println("Please do not exceed 90 characters");
             printInputMenu();
         }
         else {
-        System.out.println("Lütfen öğrenci numaranızı isminizi giriniz");
+        System.out.println("Please enter your student number");
         String b = scanner.next();
        setInput(a);
        setStudentNumber(b);
