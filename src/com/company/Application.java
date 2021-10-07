@@ -27,7 +27,7 @@ public class Application {
 
     public int printSelectionMenu() {
         System.out.println(
-                "Merhaba lütfen işleminizi seçiniz\n" +
+                "Hi, please choose your action\n" +
                         "1.Şifreleme \n " +
                         "2.Çözümleme"    //ingilizce olacak
         );

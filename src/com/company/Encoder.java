@@ -41,7 +41,7 @@ public class Encoder {
                     encryptedChar =inputArray[i];
                 }else {
                     encryptedChar = inputArray[i];
-                    encryptedChar =;
+                    encryptedChar =valueMap.get(inputChar);
                     inputChar = encryptedChar;
                     break;
                 }}
@@ -53,30 +53,6 @@ public class Encoder {
 
         System.out.println(response);
     }
-    public  char valueGetHashMap(char searchValueKey) {
-        Collection<Character>keyset=valueMap.values();
-        ArrayList<Character>indisliListe=new ArrayList<Character>(keyset);
-        Set<Character> Keys=valueMap.keySet();
-        ArrayList<Character>KeyList=new ArrayList<Character>(Keys);
-        for(int i=0;i<KeyList.size();i++){
-            if(indisliListe.get(i)==searchValueKey){
-               return KeyList.get(i);
-            }
-        }
-        return 'c';
-    }
-    static HashMap<Character,Character>a= new HashMap<Character,Character>();
-    public static int  searchHashMap(HashMap<Character,Character>hashMapChar,char keyValue){
-        char foundedValue='~';
-        for(int i=0;i<hashMapChar.size();i++){
-            if(hashMapChar.containsValue(keyValue)){
-                System.out.println(i);
-                return i;
-            }
-        }
-        return -1;
-    }
-
 
     public void createValues() {
         valueMap.put(' ', '1');
