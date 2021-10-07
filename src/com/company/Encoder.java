@@ -13,15 +13,16 @@ public class Encoder {
         Character encryptedChar = ' ';
         for (int i = 0; i < inputArray.length; i++) {
             char inputChar = inputArray[i];
-            for (int j = 0; j <=key.get(i % key.size()); j++) {
-                if (key.get(i%key.size()) == 0){
-                    encryptedChar =inputArray[i];
-                }else {
+            for (int j = 0; j <= key.get(i % key.size()); j++) {
+                if (key.get(i % key.size()) == 0) {
                     encryptedChar = inputArray[i];
-                encryptedChar = valueMap.get(inputChar);
-                inputChar = encryptedChar;
-                break;
-            }}
+                } else {
+                    encryptedChar = inputArray[i];
+                    encryptedChar = valueMap.get(inputChar);
+                    inputChar = encryptedChar;
+                    break;
+                }
+            }
 
 
             response += encryptedChar;
@@ -29,6 +30,7 @@ public class Encoder {
 
 
         System.out.println(response);
+
     }
 
     public void decrypt() {
@@ -41,7 +43,7 @@ public class Encoder {
                     encryptedChar =inputArray[i];
                 }else {
                     encryptedChar = inputArray[i];
-                    encryptedChar =valueMap.get(inputChar);
+                    encryptedChar= getkeyfromvalue(inputChar);
                     inputChar = encryptedChar;
                     break;
                 }}
@@ -52,6 +54,27 @@ public class Encoder {
 
 
         System.out.println(response);
+    }
+    public char searchHashMap(HashMap<Character,Character>hashMapChar,char searchValue,char keyValue){
+        char foundedValue='~';
+        for(int i=0;i<hashMapChar.size();i++){
+            if(hashMapChar.get(keyValue)==searchValue){
+                foundedValue= hashMapChar.get(keyValue);
+            }
+        }
+        return foundedValue;
+    }
+    public Character getkeyfromvalue(char searchkey) {
+        Collection<Character> keyset = valueMap.values();
+        ArrayList<Character> indisliListe = new ArrayList<Character>(keyset);
+        Set<Character> Keys = valueMap.keySet();
+        ArrayList<Character> KeyList = new ArrayList<Character>(Keys);
+        for (int i = 0; i < indisliListe.size(); i++) {
+            if (indisliListe.get(i) == searchkey) {
+                return KeyList.get(i);
+            }
+        }
+        return ' ';
     }
 
     public void createValues() {

@@ -50,9 +50,15 @@ public class Application {
         else {
         System.out.println("Please enter your student number");
         String b = scanner.next();
+        if (!isNumeric(b)){
+            System.out.println("Please enter number");
+            printInputMenu();
+        }else {
        setInput(a);
        setStudentNumber(b);
-    }}
+            }
+        }
+    }
 
     private void prepareData() {
         char[] chars = getInput().toCharArray();
